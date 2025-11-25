@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="header-section">
+    <text style="font-size: 36rpx; font-weight: 800; color: #333;">设置</text>
+  </view>
+
+  <view class="card">
+    <view class="setting-item">
+      <text class="setting-label">工作时间</text>
+      <view class="time-picker">
+        <picker mode="time" value="{{workStart}}" bindchange="onWorkStartChange">
+          <view class="time-value">{{workStart}}</view>
+        </picker>
+        <text class="time-separator">至</text>
+        <picker mode="time" value="{{workEnd}}" bindchange="onWorkEndChange">
+          <view class="time-value">{{workEnd}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="setting-item">
+      <text class="setting-label">晾衣偏好</text>
+      <slider 
+        class="preference-slider" 
+        min="0" 
+        max="10" 
+        value="{{preferenceValue}}" 
+        bindchange="onPreferenceChange"
+        activeColor="#4facfe"
+        backgroundColor="#e0e0e0"
+        block-size="20"
+      />
+      <view class="preference-info">
+        <text class="preference-text">{{preferenceText}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-buttons">
+    <button class="btn-primary" bindtap="saveSettings">保存设置</button>
+    <button class="btn-outline" bindtap="resetSettings">恢复默认</button>
+  </view>
+</view>

@@ -1,0 +1,60 @@
+/* pages/settings/settings.wxss */
+.header-section { margin-bottom: 30rpx; padding-left: 10rpx; }
+
+.setting-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40rpx;
+}
+
+.setting-label {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.time-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.time-value {
+  background: rgba(79, 172, 254, 0.1);
+  color: #4facfe;
+  padding: 16rpx 24rpx;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  min-width: 120rpx;
+  text-align: center;
+}
+
+.time-separator {
+  font-size: 24rpx;
+  color: #666;
+  margin: 0 20rpx;
+}
+
+.preference-slider {
+  width: 100%;
+  margin: 20rpx 0;
+}
+
+.preference-info {
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+.preference-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  margin-top: 40rpx;
+}

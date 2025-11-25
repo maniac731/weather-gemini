@@ -1,0 +1,101 @@
+<view class="container">
+  
+  <view class="header-section">
+    <view class="location-pill" bindtap="handleChooseLocation">
+      <text class="icon">📍</text>
+      <text class="text">{{location ? location.address : '点击选择位置'}}</text>
+    </view>
+    <view class="app-title">
+      <text class="main">晾衣助手</text>
+    </view>
+  </view>
+
+  <view class="card hero-card" wx:if="{{todayForecast}}">
+    <view class="date-badge">{{todayForecast.dateDisplay}}</view>
+    
+    <view class="score-container">
+      <view class="score-circle {{todayForecast.color}}">
+        <text class="score-num">{{todayForecast.drying_index_display}}</text>
+        <text class="score-label">指数</text>
+      </view>
+      <view class="score-info">
+        <text class="status-text {{todayForecast.color}}">{{todayForecast.recommendation}}</text>
+        <text class="desc-text" wx:if="{{todayForecast.drying_index >= 70}}">阳光充足，速干！</text>
+        <text class="desc-text" wx:elif="{{todayForecast.drying_index >= 30}}">天气尚可，耐心等待</text>
+        <text class="desc-text" wx:else>建议改为室内烘干</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- NEW: Pill Timeline Section -->
+  <view class="drying-section" wx:if="{{todayForecast && todayForecast.drying_pills.length > 0}}">
+    <view class="section-title">今日晾晒时段</view>
+
+    <scroll-view class="timeline-scroll" scroll-x enable-flex>
+      <view class="timeline-container">
+        
+        <!-- Layer 1: Time Ticks -->
+        <view class="timeline-track">
+          <block wx:for="{{todayForecast.hourly_data}}" wx:key="timeDisplay">
+            <view class="time-slot" style="width: {{slotWidth}}rpx;">
+              <view class="time-text">{{item.timeDisplay}}</view>
+              <view class="tick-mark"></view>
+            </view>
+          </block>
+        </view>
+
+        <!-- Layer 2: Pill Ranges -->
+        <view class="pills-layer">
+          <block wx:for="{{todayForecast.drying_pills}}" wx:key="left">
+            <view class="pill-item" style="left: {{item.left}}rpx; width: {{item.width}}rpx;">
+              <view class="pill-body">
+                <view class="pill-icon">☀️</view>
+                <text class="pill-text" wx:if="{{item.isLong}}">适宜晾晒</text>
+              </view>
+              <view class="pill-range-tag">
+                {{item.label}}
+              </view>
+            </view>
+          </block>
+        </view>
+
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="metrics-container" wx:if="{{todayForecast}}">
+    <view class="metric-box">
+      <view class="metric-icon blue">🌡️</view>
+      <view class="metric-data">
+        <text class="label">温度</text>
+        <text class="value">{{todayForecast.avg_temp_display}}°</text>
+      </view>
+    </view>
+    <view class="metric-box">
+      <view class="metric-icon cyan">💧</view>
+      <view class="metric-data">
+        <text class="label">湿度</text>
+        <text class="value">{{todayForecast.avg_humidity_display}}%</text>
+      </view>
+    </view>
+    <view class="metric-box">
+      <view class="metric-icon purple">💨</view>
+      <view class="metric-data">
+        <text class="label">风速</text>
+        <text class="value">{{todayForecast.avg_wind_display}}</text>
+      </view>
+    </view>
+    <view class="metric-box">
+      <view class="metric-icon indigo">☔</view>
+      <view class="metric-data">
+        <text class="label">降雨</text>
+        <text class="value">{{todayForecast.rain_probability_display}}%</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-grid">
+    <button class="action-btn" bindtap="fetchWeather">🔄 刷新</button>
+    <button class="action-btn" bindtap="goToForecast">📅 5天预报</button>
+  </view>
+</view>

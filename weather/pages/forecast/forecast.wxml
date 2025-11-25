@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="header-section">
+    <text class="page-title">未来5天趋势</text>
+  </view>
+
+  <!-- Temperature Chart -->
+  <view class="card chart-card">
+    <view class="chart-title">气温趋势 (°C)</view>
+    <canvas canvas-id="temp-chart" class="chart-canvas"></canvas>
+  </view>
+
+  <!-- Humidity and Rain Chart -->
+  <view class="card chart-card">
+    <view class="chart-title">湿度与降雨趋势 (%)</view>
+    <canvas canvas-id="humidity-chart" class="chart-canvas"></canvas>
+  </view>
+
+  <!-- Original List View -->
+  <view class="card list-card">
+    <view class="forecast-row" wx:for="{{forecasts}}" wx:key="date">
+      <view class="row-date">
+        <text class="day">{{item.dateDisplay}}</text>
+        <text class="weather-desc">{{item.recommendation}}</text>
+      </view>
+
+      <view class="row-data">
+        <view class="temp-pill">
+          🌡️ {{item.temp_min}}°/{{item.temp_max}}°
+        </view>
+        <view class="index-badge {{item.color}}">
+          {{item.drying_index_display}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

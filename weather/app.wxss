@@ -1,0 +1,75 @@
+/**app.wxss**/
+page {
+  /* Modern Weather Palette */
+  --primary: #4facfe;
+  --primary-dark: #00f2fe;
+  --text-main: #333333;
+  --text-secondary: #666666;
+  /* Soft Blue Gradient Background */
+  --bg-gradient: linear-gradient(180deg, #a1c4fd 0%, #c2e9fb 100%);
+  /* Frosted Glass Card Background */
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --shadow: 0 8rpx 32rpx rgba(31, 38, 135, 0.07);
+  
+  /* Status Colors */
+  --success: #00b894; /* Green */
+  --warning: #fdcb6e; /* Orange */
+  --danger: #ff7675;  /* Red */
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  box-sizing: border-box;
+  min-height: 100vh; 
+}
+
+/* Container Reset */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx;
+  box-sizing: border-box;
+  padding-bottom: 80rpx;
+}
+
+/* Common Card Style */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px); /* The Glass Effect */
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 30rpx;
+  padding: 32rpx;
+  margin-bottom: 30rpx;
+  box-shadow: var(--shadow);
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50rpx;
+  font-weight: 600;
+  font-size: 30rpx;
+  padding: 24rpx 0;
+  box-shadow: 0 4rpx 15rpx rgba(118, 75, 162, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.6);
+  color: #5e60ce;
+  border: 2rpx solid #5e60ce;
+  border-radius: 50rpx;
+  font-weight: 600;
+  font-size: 30rpx;
+  padding: 22rpx 0;
+}

@@ -1,0 +1,74 @@
+/* pages/forecast/forecast.wxss */
+
+.header-section { margin-bottom: 30rpx; padding-left: 10rpx; }
+
+/* Chart Styles */
+.chart-card {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+}
+
+.chart-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.chart-canvas {
+  width: 100%;
+  height: 400rpx;
+  border-radius: 10rpx;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* List Styles */
+.forecast-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid rgba(0,0,0,0.05);
+}
+
+/* Left: Date */
+.row-date { 
+  display: flex; 
+  flex-direction: column; 
+  width: 140rpx; /* Fixed width for alignment */
+}
+.day { font-size: 28rpx; font-weight: 600; color: #333; margin-bottom: 6rpx; }
+.weather-desc { font-size: 22rpx; color: #999; }
+
+/* Right: Data */
+.row-data {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.temp-pill {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 10rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.index-badge {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: white;
+}
+.index-badge.green { background: #00b894; }
+.index-badge.orange { background: #fdcb6e; }
+.index-badge.blue { background: #4facfe; }
+.index-badge.red { background: #ff7675; }
